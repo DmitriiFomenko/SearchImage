@@ -87,8 +87,8 @@ namespace SearchImage.Classes
         static public void MiddleClick()//Нажимается ещё и ПКМ
         {
             GetCursorPos(out POINT p);
-            mouse_event(MouseFlags.Absolute | MouseFlags.MiddleUp | MouseFlags.MiddleUp, p.X, p.Y, 0, 0);
-            RightUp();
+            mouse_event(MouseFlags.Absolute | MouseFlags.MiddleUp | MouseFlags.MiddleDown, p.X, p.Y, 0, 0);
+            //RightUp();
         }
 
         static public void RightClick()

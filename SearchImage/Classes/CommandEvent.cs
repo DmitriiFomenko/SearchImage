@@ -14,6 +14,7 @@ namespace SearchImage.Classes
         {
             Bitmap bm = new Bitmap(path);
             int minSize = bm.Height > bm.Width ? bm.Width : bm.Height;
+            bm.Dispose();
 
             int scale;
             if (minSize > 500)
@@ -24,6 +25,8 @@ namespace SearchImage.Classes
                 scale = 2;
             else
                 scale = 1;
+
+
 
             return scale;
         }
