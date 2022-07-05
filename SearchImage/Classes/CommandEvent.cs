@@ -34,7 +34,9 @@ namespace SearchImage.Classes
         {
             try
             {
+                var rand = new Random(); //random integers from 50 to 100. rand.Next(50, 101)
                 string[] arrayCommand = Commands.Split('\n');
+
                 foreach (string command in arrayCommand)
                 {
                     string[] words = command.Split(' ');
@@ -48,6 +50,15 @@ namespace SearchImage.Classes
                             CommandMouse.MoveTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), Convert.ToInt32(words[3]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[4]));
                             break;
+                        case "MoveTimeRandom":// MoveTimeRandom x y time randomFrom randomTo sleep
+                            {
+                                int baseTime = Convert.ToInt32(words[3]);
+                                int randTime = rand.Next(Convert.ToInt32(words[4]) + Convert.ToInt32(words[5]) + 1);
+                                CommandMouse.MoveTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), baseTime + randTime);
+
+                                System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
+                                break;
+                            }
                         case "MoveVector":// MoveVector x y sleep
                             CommandMouse.MoveVector(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[3]));
@@ -56,6 +67,14 @@ namespace SearchImage.Classes
                             CommandMouse.MoveVectorTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), Convert.ToInt32(words[3]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[4]));
                             break;
+                        case "MoveVectorTimeRandom":// MoveVectorTimeRandom x y time randomFrom randomTo sleep
+                            {
+                                int baseTime = Convert.ToInt32(words[3]);
+                                int randTime = rand.Next(Convert.ToInt32(words[4]) + Convert.ToInt32(words[5]) + 1);
+                                CommandMouse.MoveVectorTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), baseTime + randTime);
+                                System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
+                                break;
+                            }
                         case "Find":// Find image sleep
                             {
                                 Bitmap BM = new Bitmap(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width,
@@ -108,6 +127,35 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[3]));
                             }
                             break;
+                        case "FindTimeRandom":// Find image time randomFrom randomTo sleep
+                            {
+
+                                Bitmap BM = new Bitmap(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width,
+                                    System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                                Graphics GH = Graphics.FromImage(BM);
+                                AforgeService service;
+                                while (true)
+                                {
+
+                                    GH.CopyFromScreen(0, 0, 0, 0, BM.Size);
+                                    service =
+                                        await CommandAForge.GetServiceAsync(BM, new Bitmap(words[1]));
+
+                                    if (service.CountMatchings > 0)
+                                    {
+                                        int baseTimeMove = Convert.ToInt32(words[2]);
+                                        int randTimeMove = rand.Next(Convert.ToInt32(words[3]), Convert.ToInt32(words[4]) + 1);
+                                        CommandMouse.MoveTime(
+                                            (int)(service.GetPlaces()[0].Left + service.GetPlaces()[0].Width / 2) * getScale(words[1]),
+                                            (int)(service.GetPlaces()[0].Top + service.GetPlaces()[0].Height / 2) * getScale(words[1]),
+                                            baseTimeMove + randTimeMove);
+                                        break;
+                                    }
+                                }
+                                BM.Dispose();
+                                System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
+                            }
+                            break;
                         case "LeftDown":
                             CommandMouse.LeftDown();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
@@ -139,6 +187,13 @@ namespace SearchImage.Classes
                         case "Sleep":
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "SleepRandom":
+                            {
+                                int baseTimeSleep = Convert.ToInt32(words[1]);
+                                int randomTimeSleep = rand.Next(Convert.ToInt32(words[2]) + Convert.ToInt32(words[3]) + 1);
+                                System.Threading.Thread.Sleep(baseTimeSleep + randomTimeSleep);
+                                break;
+                            }
                         case "Keys":
                             CommandWin.Keys(words[1]);
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[2]));
