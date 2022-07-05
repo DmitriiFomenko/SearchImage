@@ -42,14 +42,17 @@ namespace SearchImage.Classes
                     string[] words = command.Split(' ');
                     switch (words[0])
                     {
+                        case "M":
                         case "Move":// Move x y sleep
                             CommandMouse.Move(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[3]));
                             break;
+                        case "MT":
                         case "MoveTime":// MoveTime x y time sleep
                             CommandMouse.MoveTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), Convert.ToInt32(words[3]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[4]));
                             break;
+                        case "MTR":
                         case "MoveTimeRandom":// MoveTimeRandom x y time randomFrom randomTo sleep
                             {
                                 int baseTime = Convert.ToInt32(words[3]);
@@ -59,14 +62,17 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
                                 break;
                             }
+                        case "MV":
                         case "MoveVector":// MoveVector x y sleep
                             CommandMouse.MoveVector(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[3]));
                             break;
+                        case "MVT":
                         case "MoveVectorTime":// MoveVectorTime x y time sleep
                             CommandMouse.MoveVectorTime(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), Convert.ToInt32(words[3]));
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[4]));
                             break;
+                        case "MVTR":
                         case "MoveVectorTimeRandom":// MoveVectorTimeRandom x y time randomFrom randomTo sleep
                             {
                                 int baseTime = Convert.ToInt32(words[3]);
@@ -75,6 +81,7 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
                                 break;
                             }
+                        case "F":
                         case "Find":// Find image sleep
                             {
                                 Bitmap BM = new Bitmap(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width,
@@ -99,6 +106,7 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[2]));
                             }
                             break;
+                        case "FT":
                         case "FindTime":// Find image time sleep
                             {
 
@@ -127,6 +135,7 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[3]));
                             }
                             break;
+                        case "FTR":
                         case "FindTimeRandom":// Find image time randomFrom randomTo sleep
                             {
 
@@ -156,37 +165,46 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(Convert.ToInt32(words[6]));
                             }
                             break;
+                        case "LD":
                         case "LeftDown":
                             CommandMouse.LeftDown();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "LU":
                         case "LeftUp":
                             CommandMouse.LeftUp();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "LC":
                         case "LeftClick":
                             CommandMouse.LeftClick();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "MC":
                         case "MiddleClick":
                             CommandMouse.MiddleClick();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "RD":
                         case "RightDown":
                             CommandMouse.RightDown();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "RU":
                         case "RightUp":
                             CommandMouse.RightUp();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "RC":
                         case "RightClick":
                             CommandMouse.RightClick();
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "S":
                         case "Sleep":
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[1]));
                             break;
+                        case "SR":
                         case "SleepRandom":
                             {
                                 int baseTimeSleep = Convert.ToInt32(words[1]);
@@ -194,6 +212,7 @@ namespace SearchImage.Classes
                                 System.Threading.Thread.Sleep(baseTimeSleep + randomTimeSleep);
                                 break;
                             }
+                        case "K":
                         case "Keys":
                             CommandWin.Keys(words[1]);
                             System.Threading.Thread.Sleep(Convert.ToInt32(words[2]));
