@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SearchImage"
         mc:Ignorable="d"
         Title="Algorithm designer" Icon="icon.ico" 
-        Height="420" Width="450" MinHeight="420" MinWidth="450">
+        Height="440" Width="450" MinHeight="440" MinWidth="450">
 
     <Grid Background="#FF80868E">
         <Grid.RowDefinitions>
@@ -15,8 +15,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="230" Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition MaxWidth="120" Width="1*"/>
+            <ColumnDefinition MaxWidth="120" Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBox
             x:Name="textCommand"

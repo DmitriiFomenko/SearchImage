@@ -1,9 +1,1 @@
-FindTime assets/box.jpg 800 500
-LeftDown 100
-MoveVectorTime 300 -100 800 500
-MoveVectorTime -150 270 800 500
-FindTime assets/box.jpg 800 500
-MoveVectorTime 0 400 800 500
-FindTime assets/redBox.jpg 800 500
-LeftUp 100
-MoveTime 0 0 1000 100
+MVT -100+0,200 -100+0,200 500 0
