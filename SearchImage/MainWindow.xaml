@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchImage"
         mc:Ignorable="d"
-        Title="Algorithm designer" Icon="icon.ico" Height="460" Width="520" MinWidth="520" MinHeight="460">
+        Title="Algorithm designer" Icon="icon.ico" 
+        Height="420" Width="450" MinHeight="420" MinWidth="450">
+
     <Grid Background="#FF80868E">
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="300" Height="15*"/>
@@ -38,9 +40,9 @@
                Grid.ColumnSpan="2"/>
 
         <Label Grid.Column="1" 
-               Content="Sleep sleep&#xA;SleepRandom sleep rFrom rTo&#xA;Move x y sleep&#xA;MoveTime x y time sleep&#xA;MoveTimeRandom x y time rFrom rTo sleep&#xA;MoveVector x y sleep&#xA;MoveVectorTime x y time sleep&#xA;MoveVectorTimeRandom x y time rFrom rTo sleep&#xA;Find image sleep&#xA;FindTime image time sleep&#xA;FindTimeRandom image time rFrom rTo sleep&#xA;&#xA;LeftDown sleep&#xA;LeftUp sleep&#xA;LeftClick sleep&#xA;MiddleClick sleep&#xA;RightDown sleep&#xA;RightUp sleep&#xA;RightClick sleep&#xA;&#xA;Keys (SendKeys) sleep" 
+               Content="Sleep sleep&#xA;Move x y sleep&#xA;MoveTime x y time sleep&#xA;MoveVector x y sleep&#xA;MoveVectorTime x y time sleep&#xA;Find image sleep&#xA;FindTime image time sleep&#xA;&#xA;LeftDown sleep&#xA;LeftUp sleep&#xA;LeftClick sleep&#xA;MiddleClick sleep&#xA;RightDown sleep&#xA;RightUp sleep&#xA;RightClick sleep&#xA;&#xA;Keys (SendKeys) sleep&#xA;&#xA;Example: Move 0+0,10 0 0" 
                HorizontalAlignment="Center" 
-               Margin="0,15,0,0" 
+               Margin="0,25,0,0" 
                VerticalAlignment="Top" 
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center" 
